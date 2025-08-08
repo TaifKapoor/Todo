@@ -10,7 +10,7 @@ function App() {
 
   // 📥 Fetch todos from backend
   const fetchTodos = async () => {
-    const res = await axios.get('http://localhost:5000/api/todos');
+    const res = await axios.get('https://todo-x84e.onrender.com/api/todos');
     setTodos(res.data);
     console.log("Todos from API:", res.data);
   };
@@ -21,11 +21,11 @@ function App() {
 
     if (editingId) {
       // ✏️ Update mode
-      await axios.put(`http://localhost:5000/api/todos/${editingId}`, { text });
+      await axios.put(`https://todo-x84e.onrender.com/api/todos/${editingId}`, { text });
       setEditingId(null);
     } else {
       // ➕ Add mode
-      await axios.post('http://localhost:5000/api/todos', { text });
+      await axios.post('https://todo-x84e.onrender.com/api/todos', { text });
     }
 
     setText('');        // ✅ Input clear after add/update
@@ -34,13 +34,13 @@ function App() {
 
   // ✔️ Toggle complete/incomplete
   const toggleTodo = async (id, completed) => {
-    await axios.put(`http://localhost:5000/api/todos/${id}`, { completed: !completed });
+    await axios.put(`https://todo-x84e.onrender.com/api/todos/${id}`, { completed: !completed });
     fetchTodos();
   };
 
   // 🗑 Delete task
   const deleteTodo = async (id) => {
-    await axios.delete(`http://localhost:5000/api/todos/${id}`);
+    await axios.delete(`https://todo-x84e.onrender.com/api/todos/${id}`);
     fetchTodos();
   };
 

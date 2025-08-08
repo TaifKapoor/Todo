@@ -13,6 +13,11 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
+app.get('/', (req, res) => {
+    console.log('Middle')
+    res.send('<h1>Welcome to my Express.js server! kse hap log gvar logo</h1>');
+});
+
 app.use('/api/todos', todoRoutes);
 
 const PORT = process.env.PORT || 5000;
